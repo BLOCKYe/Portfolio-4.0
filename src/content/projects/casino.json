@@ -1,0 +1,11 @@
+{
+  "title": "Casino",
+  "description": "The app works like a simulator, you can bet coins and win a fortune. I also implemented currency converter in deposit zone.",
+  "date": "August 2021",
+  "thumbnail": "/images/roulette2.png",
+  "images": [],
+  "tags": ["React", "Sass", "Figma", "API"],
+  "demo": "",
+  "github": "https://github.com/BLOCKYe/Casino",
+  "sortOrder": 4
+}

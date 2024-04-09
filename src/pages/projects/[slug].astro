@@ -1,0 +1,119 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import type { CollectionResult, ProjectDto } from "../../content/config";
+import Layout from "../../layouts/Layout.astro";
+import ProfileHeaderLight from "../../components/ProfileHeaderLight.astro";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { Image } from "astro:assets";
+import Footer from "../../components/Footer.astro";
+import ProjectsList from "../../components/ProjectsList.astro";
+import { TbExternalLink } from "react-icons/tb";
+import { IoLogoGithub } from "react-icons/io5";
+
+export async function getStaticPaths() {
+  const projectsCollection: CollectionResult<ProjectDto>[] =
+    await getCollection("projects");
+
+  return projectsCollection.map((item) => {
+    return { params: { slug: item.id } };
+  });
+}
+const recentProjectsCollection = await getCollection("recent");
+
+const { slug } = Astro.params;
+const data: CollectionResult<ProjectDto> | undefined = await getEntry(
+  "projects",
+  slug
+);
+---
+
+<Layout title=`${data?.data?.title} › Projects › Dominik Obłoza`>
+  <ProfileHeaderLight />
+
+  <div class="divider"></div>
+
+  <a href={`/`}>
+    <button
+      class="mt-6 mb-6 fc text-sm text-muted transition-all hover:text-l-main cursor-pointer group"
+    >
+      <div class="transition-all group-hover:-translate-x-2">
+        <FaLongArrowAltLeft />
+      </div>
+      Back to Homepage
+    </button>
+  </a>
+
+  <section>
+    <h1 class="text-c-main">{data?.data?.title}</h1>
+    <p class="text-xs mt-2">{data?.data?.date}</p>
+    <p class="text-muted text-sm mt-3">{data?.data?.description}</p>
+    <div class="mt-6 flex flex-wrap gap-1">
+      {data?.data?.tags.map((tag) => <span class="label">{tag}</span>)}
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="flex flex-wrap gap-3 mt-6">
+      {
+        data?.data?.demo && (
+          <a href={data?.data?.demo} target="_blank">
+            <button class="btn">
+              <TbExternalLink title="Preview demo" />
+              demo
+            </button>
+          </a>
+        )
+      }
+      {
+        data?.data?.github && (
+          <a href={data?.data?.github} target="_blank">
+            <button class="btn">
+              <IoLogoGithub title="Github" />
+              github
+            </button>
+          </a>
+        )
+      }
+    </div>
+
+    <div class="mt-12">
+      {
+        data?.data?.thumbnail && (
+          <Image
+            src={data?.data?.thumbnail}
+            alt={data?.data?.title ?? ""}
+            width={1000}
+            height={1000}
+            class="rounded-md border-[1px] border-d-second"
+          />
+        )
+      }
+
+      <div class="grid gap-3 mt-3">
+        {
+          data?.data?.images.map((image) => (
+            <Image
+              src={image}
+              alt={data?.data?.title ?? ""}
+              width={1000}
+              height={1000}
+              class="rounded-md border-[1px] border-d-second"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <ProjectsList
+    title="Most recent side-projects."
+    description="Some of my recent private projects."
+    projects={recentProjectsCollection}
+  />
+
+  <div class="divider"></div>
+
+  <Footer />
+</Layout>

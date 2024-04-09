@@ -1,0 +1,11 @@
+{
+  "title": "Pocket-weather",
+  "description": "The weather app allows you to check the weather by location or by search. The app displays hourly and daily weather for 7 days.",
+  "date": "August 2021",
+  "thumbnail": "/images/weather1.png",
+  "images": [],
+  "tags": ["React", "Sass", "Figma", "API"],
+  "demo": "",
+  "github": "https://github.com/BLOCKYe/Pocket-weather",
+  "sortOrder": 5
+}

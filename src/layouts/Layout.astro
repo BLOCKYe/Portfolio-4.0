@@ -1,0 +1,68 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="max-w-4xl w-full mx-auto p-3 md:p-6 mt-3 md:mt-6">
+    <ViewTransitions transition:animate="slide" />
+    <slot />
+  </body>
+</html>
+<style is:global>
+  @font-face {
+    font-family: "Geist Mono";
+    src: url("/fonts/GeistMono-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    font-size: 15px;
+    font-family: "Geist Mono", monospace;
+    @apply bg-d-main text-l-main;
+  }
+
+  h1 {
+    @apply text-2xl font-bold leading-8;
+  }
+
+  h2 {
+    @apply text-lg leading-8;
+  }
+
+  p {
+    @apply font-medium;
+  }
+
+  .btn {
+    @apply border-[1px] rounded border-d-third text-xs py-2 px-3 hover:bg-d-second hover:text-c-main transition-all flex gap-3 items-center;
+  }
+
+  .label {
+    @apply rounded text-xs p-1 px-2 text-muted border-[1px] border-d-third bg-d-second;
+  }
+
+  .icon {
+    @apply box-content p-2 transition-all rounded-full cursor-pointer bg-d-second hover:text-c-main;
+  }
+</style>

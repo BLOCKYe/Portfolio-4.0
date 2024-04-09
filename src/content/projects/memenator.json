@@ -1,0 +1,11 @@
+{
+  "title": "Memenator",
+  "description": "A service that allows you to publish memes and share them with your friends.",
+  "date": "November 2021",
+  "thumbnail": "/images/memenator.jpg",
+  "images": ["/images/Memenator2.jpg"],
+  "github": "https://github.com/BLOCKYe/Memenator-service",
+  "demo": "",
+  "tags": ["NextJS", "ChakraUI", "Firebase", "Figma"],
+  "sortOrder": 3
+}

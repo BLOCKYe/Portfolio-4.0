@@ -1,0 +1,11 @@
+{
+  "title": "Pocket poll",
+  "description": "A pocket application that allows you to create anonymous surveys.",
+  "date": "May 2022",
+  "thumbnail": "/images/pocket-poll-2.jpg",
+  "images": ["/images/pocket-poll-1.jpg", "/images/pocket-poll-3.jpg"],
+  "github": "https://github.com/BLOCKYe/pocket-poll",
+  "demo": "https://pocket-poll.vercel.app/",
+  "tags": ["React", "Typescript", "Firebase", "Websocket"],
+  "sortOrder": 2
+}

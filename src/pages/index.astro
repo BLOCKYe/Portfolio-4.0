@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProfileHeader from "../components/ProfileHeader.astro";
+import ProjectsList from "../components/ProjectsList.astro";
+import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+const projectsCollection = await getCollection("projects");
+const recentProjectsCollection = await getCollection("recent");
+---
+
+<Layout title="Homepage › Dominik Obłoza">
+  <ProfileHeader />
+
+  <div class="divider"></div>
+
+  <ProjectsList
+    title="Most recent side-projects."
+    description="Some of my recent private projects."
+    projects={recentProjectsCollection}
+  />
+
+  <div class="divider"></div>
+
+  <ProjectsList
+    title="Previous projects."
+    description="A collection of my past side projects."
+    projects={projectsCollection}
+  />
+
+  <div class="divider"></div>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,33 @@
+---
+import { TiThList } from "react-icons/ti";
+import ProjectCard from "./ProjectCard.astro";
+import type { CollectionResult, ProjectDto } from "../content/config";
+
+interface Props {
+  title: string;
+  description: string;
+  projects: Array<CollectionResult<ProjectDto>>;
+}
+
+const { title, description, projects } = Astro.props;
+
+const firstProjectsColumn = projects.slice(0, projects.length / 2);
+const secondProjectsColumn = projects.slice(projects.length / 2);
+---
+
+<section>
+  <div class="fc">
+    <TiThList />
+    <h2>{title}</h2>
+  </div>
+  <p class="text-muted text-sm">{description}</p>
+
+  <div class="mt-6 grid gap-3 md:grid-cols-2">
+    <div class="grid gap-3">
+      {firstProjectsColumn.map((project) => <ProjectCard {...project} />)}
+    </div>
+    <div class="grid gap-3">
+      {secondProjectsColumn.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </div>
+</section>

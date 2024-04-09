@@ -1,0 +1,11 @@
+{
+  "title": "CloudTank.pl",
+  "description": "A service dedicated to boosting gaming accounts. In addition, the site has a CMS that allows you to edit all the content.",
+  "date": "December 2021",
+  "thumbnail": "/images/cloudtank.png",
+  "images": ["/images/cloudtank2.png"],
+  "github": "https://github.com/BLOCKYe/CloudTank",
+  "demo": "https://cloud-tank.vercel.app/",
+  "tags": ["NextJS", "ChakraUI", "Strapi", "Figma", "REST API"],
+  "sortOrder": 1
+}

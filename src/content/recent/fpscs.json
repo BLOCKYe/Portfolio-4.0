@@ -1,0 +1,20 @@
+{
+  "title": "FPSCS.PL",
+  "description": "The essential app for Faceit platform enthusiasts. Analyze real-time stats, explore player profiles, and track your progress effortlessly.",
+  "date": "November 2023",
+  "thumbnail": "https://www.dominikobloza.pl/images/code/fpscs3.png",
+  "images": ["https://www.dominikobloza.pl/images/code/fpscs3.png"],
+  "github": "https://github.com/BLOCKYe/faceit-pocket-stats",
+  "demo": "https://www.fpscs.pl/players/19606e0c-137b-4885-a904-744fa12d25f6/cs2",
+  "tags": [
+    "NextJS 14",
+    "Typescript",
+    "TailwindCSS",
+    "shadcn",
+    "docker",
+    "react-testing-library",
+    "jest",
+    "tanstack-react-query"
+  ],
+  "sortOrder": 1
+}

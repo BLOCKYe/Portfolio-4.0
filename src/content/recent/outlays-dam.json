@@ -1,0 +1,22 @@
+{
+  "title": "Outlays Dam",
+  "description": "A private budget management application. Allows you to track your expenses and income, helps you achieve savings goals.",
+  "date": "September 2022",
+  "thumbnail": "/images/outlays-dam-1.jpg",
+  "images": [
+    "/images/outlays_dam_preview3.png",
+    "/images/outlays_dam_preview1.png",
+    "/images/outlays_dam_preview2.png"
+  ],
+  "github": "https://github.com/BLOCKYe/Outlays-dam",
+  "demo": "https://outlays-dam.vercel.app/",
+  "tags": [
+    "NextJS",
+    "Typescript",
+    "Prisma",
+    "Redux",
+    "ChakraUI",
+    "TailwindCSS"
+  ],
+  "sortOrder": 2
+}

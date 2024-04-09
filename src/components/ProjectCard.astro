@@ -1,0 +1,70 @@
+---
+import { FaLongArrowAltRight } from "react-icons/fa";
+import type { CollectionResult, ProjectDto } from "../content/config";
+import { Image } from "astro:assets";
+import { IoLogoGithub } from "react-icons/io5";
+import { TbExternalLink } from "react-icons/tb";
+
+interface Props extends CollectionResult<ProjectDto> {}
+
+const {
+  id,
+  data: { title, description, date, demo, github, tags, thumbnail },
+} = Astro.props;
+---
+
+<div class="rounded border-[1px] border-d-third overflow-hidden relative">
+  <Image src={thumbnail} alt={title} width={1000} height={1000} />
+
+  <div class="p-3 md:p-6">
+    <div class="divider-2"></div>
+
+    <div
+      class="flex justify-between align-top items-start mt-6 flex-wrap gap-3"
+    >
+      <div>
+        <h2 class="text-c-main">{title}</h2>
+        <p class="text-xs mt-1">{date}</p>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        {
+          demo && (
+            <a href={demo} target="_blank">
+              <button class="btn">
+                <TbExternalLink title="Preview demo" />
+                demo
+              </button>
+            </a>
+          )
+        }
+        {
+          github && (
+            <a href={github} target="_blank">
+              <button class="btn">
+                <IoLogoGithub title="Github" />
+                github
+              </button>
+            </a>
+          )
+        }
+      </div>
+    </div>
+
+    <p class="text-muted text-sm mt-3">{description}</p>
+
+    <div class="mt-6 flex flex-wrap gap-1 mb-12">
+      {tags.map((tag) => <span class="label">{tag}</span>)}
+
+      <a href={`/projects/${id}`}>
+        <button
+          class="mt-6 fc text-sm text-muted transition-all hover:text-l-main cursor-pointer group absolute bottom-3 md:bottom-6 right-3 md:right-6"
+        >
+          details <div class="transition-all group-hover:translate-x-2">
+            <FaLongArrowAltRight />
+          </div>
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
