@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Loading from "../components/Loading.astro";
 
 interface Props {
   title: string;
@@ -12,57 +13,120 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Dominik Obłoza, Web Development & UI Design" />
+    <meta
+      name="description"
+      content="Dominik Obłoza, Web Development & UI Design"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="max-w-4xl w-full mx-auto p-3 md:p-6 mt-3 md:mt-6">
-    <ViewTransitions transition:animate="slide" />
+  <body class="max-w-4xl w-full mx-auto p-3 md:p-6 mt-3 md:mt-6 relative">
+    <ViewTransitions />
+    <Loading transition:persis />
+
     <slot />
+
+    <style is:global>
+      @font-face {
+        font-family: "Geist Mono";
+        src: url("/fonts/GeistMono-Regular.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      ::-webkit-scrollbar {
+        @apply bg-d-main w-2;
+      }
+
+      ::-webkit-scrollbar-track {
+        @apply bg-d-second w-2;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        @apply bg-d-third w-2 rounded-full;
+      }
+
+      .fade-in {
+        animation: fade-in-screen 1s ease-in-out forwards;
+      }
+
+      .fade-in-2 {
+        animation: fade-in-logo 0.5s ease-in-out forwards;
+      }
+
+      @keyframes fade-in-screen {
+        0% {
+          opacity: 1;
+        }
+
+        80% {
+          opacity: 1;
+        }
+
+        100% {
+          overflow: hidden;
+          opacity: 0;
+          display: none;
+          visibility: hidden;
+        }
+      }
+
+      @keyframes fade-in-logo {
+        0% {
+          opacity: 0.25;
+        }
+
+        60% {
+          opacity: 0.75;
+        }
+
+        80% {
+          opacity: 0.75;
+        }
+
+        100% {
+          overflow: hidden;
+          opacity: 0;
+          display: none;
+          visibility: hidden;
+        }
+      }
+
+      * {
+        @apply box-border;
+      }
+
+      html {
+        font-size: 15px;
+        font-family: "Geist Mono", monospace;
+        @apply bg-d-main text-l-main;
+      }
+
+      h1 {
+        @apply text-2xl font-bold leading-8;
+      }
+
+      h2 {
+        @apply text-lg leading-8;
+      }
+
+      p {
+        @apply font-medium;
+      }
+
+      .btn {
+        @apply border-[1px] rounded border-d-third text-xs py-2 px-3 hover:bg-d-second hover:text-c-main transition-all flex gap-3 items-center;
+      }
+
+      .label {
+        @apply rounded text-xs p-1 px-2 text-muted border-[1px] border-d-third bg-d-second;
+      }
+
+      .icon {
+        @apply box-content p-2 transition-all rounded-full cursor-pointer bg-d-second hover:text-c-main;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: "Geist Mono";
-    src: url("/fonts/GeistMono-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  * {
-    @apply box-border;
-  }
-
-  html {
-    font-size: 15px;
-    font-family: "Geist Mono", monospace;
-    @apply bg-d-main text-l-main;
-  }
-
-  h1 {
-    @apply text-2xl font-bold leading-8;
-  }
-
-  h2 {
-    @apply text-lg leading-8;
-  }
-
-  p {
-    @apply font-medium;
-  }
-
-  .btn {
-    @apply border-[1px] rounded border-d-third text-xs py-2 px-3 hover:bg-d-second hover:text-c-main transition-all flex gap-3 items-center;
-  }
-
-  .label {
-    @apply rounded text-xs p-1 px-2 text-muted border-[1px] border-d-third bg-d-second;
-  }
-
-  .icon {
-    @apply box-content p-2 transition-all rounded-full cursor-pointer bg-d-second hover:text-c-main;
-  }
-</style>
