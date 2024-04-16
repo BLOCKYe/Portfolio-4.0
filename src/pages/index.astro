@@ -9,21 +9,22 @@ const projectsCollection = await getCollection("projects");
 const recentProjectsCollection = await getCollection("recent");
 ---
 
-<Layout title="Homepage › Dominik Obłoza">
+<Layout title="Dominik Obłoza - Portfolio">
   <ProfileHeader />
 
   <div class="divider"></div>
 
   <ProjectsList
-    title="Most recent side-projects."
+    title="Most recent side-projects"
     description="Some of my recent private projects."
     projects={recentProjectsCollection}
+    hideExtra
   />
 
   <div class="divider"></div>
 
   <ProjectsList
-    title="Previous projects."
+    title="Previous projects"
     description="A collection of my past side projects."
     projects={projectsCollection}
   />

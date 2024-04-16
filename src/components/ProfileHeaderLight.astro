@@ -3,22 +3,30 @@ import { GiAce } from "react-icons/gi";
 ---
 
 <section transition:persist>
-  <div class="fc gap-3">
-    <div class="animate-bounce text-c-main text-2xl">
-      <GiAce />
-    </div>
-    <h1>Dominik Obłoza</h1>
-  </div>
+  <div class="fc items-end gap-3 flex-wrap justify-between">
+    <div class="fc gap-4">
+      <div class="relative">
+        <div class="animate-bounce text-c-main text-2xl">
+          <GiAce />
+        </div>
+        <div
+          class="w-[23px] h-[1px] bg-gradient-to-r from-d-main via-l-second to-d-main"
+        >
+        </div>
+      </div>
 
-  <div class="fc mt-1 gap-3">
-    <div class="flex items-end gap-2">
-      <span class="text-muted text-sm">Warsaw</span>
-      <span>Poland</span>
+      <h1>Dominik Obłoza</h1>
+    </div>
+
+    <div class="fc mt-1 gap-3">
+      <div class="flex items-end gap-2">
+        <p class="text-muted">Warsaw,</p>
+        <p>Poland</p>
+      </div>
     </div>
   </div>
 
   <p class="text-muted mt-3">
-    Specializing in Web Developing and UI Design, I develop and create solutions
-    for <span class="text-default">businesses</span>.
+    Crafting and advancing <span class="text-l-main">solutions</span> for enterprises.
   </p>
 </section>

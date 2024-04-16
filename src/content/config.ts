@@ -12,6 +12,13 @@ const projectSchema = z.object({
   sortOrder: z.number(),
 });
 
+const workSchema = z.object({
+  name: z.string(),
+  date: z.string(),
+  description: z.string(),
+  sortOrder: z.number(),
+});
+
 const projectsCollection = defineCollection({
   type: "data",
   schema: projectSchema,
@@ -22,10 +29,17 @@ const recentProjectsCollection = defineCollection({
   schema: projectSchema,
 });
 
+const workCollection = defineCollection({
+  type: "data",
+  schema: workSchema,
+});
+
 export type CollectionResult<T> = { id: string; collection: string; data: T };
 export type ProjectDto = z.infer<typeof projectSchema>;
+export type WorkDto = z.infer<typeof workSchema>;
 
 export const collections = {
   projects: projectsCollection,
   recent: recentProjectsCollection,
+  work: workCollection,
 };

@@ -4,15 +4,22 @@ import ProjectCard from "./ProjectCard.astro";
 import type { CollectionResult, ProjectDto } from "../content/config";
 
 interface Props {
+  hideExtra?: boolean;
   title: string;
   description: string;
   projects: Array<CollectionResult<ProjectDto>>;
 }
 
-const { title, description, projects } = Astro.props;
+const { title, description, projects, hideExtra } = Astro.props;
 
-const firstProjectsColumn = projects.slice(0, projects.length / 2);
-const secondProjectsColumn = projects.slice(projects.length / 2);
+const sortedProjects = projects.sort(
+  (a, b) => a.data.sortOrder - b.data.sortOrder
+);
+
+const firstProjectsColumn = projects.slice(0, sortedProjects.length / 2);
+const secondProjectsColumn = projects.slice(sortedProjects.length / 2);
+
+const columnStyle = hideExtra ? "mt-6 grid gap-5 md:gap-3 md:grid-cols-2" : "mt-6 grid gap-5 md:gap-3 md:grid-cols-2 items-start"
 ---
 
 <section>
@@ -22,12 +29,22 @@ const secondProjectsColumn = projects.slice(projects.length / 2);
   </div>
   <p class="text-muted text-sm">{description}</p>
 
-  <div class="mt-6 grid gap-3 md:grid-cols-2">
+  <div class={columnStyle}>
     <div class="grid gap-3">
       {firstProjectsColumn.map((project) => <ProjectCard {...project} />)}
+      {
+        !hideExtra && (
+          <div class="bg-gradient-to-b from-d-second to-d-main w-full h-full min-h-48 hidden md:block" />
+        )
+      }
     </div>
     <div class="grid gap-3">
       {secondProjectsColumn.map((project) => <ProjectCard {...project} />)}
+      {
+        !hideExtra && (
+          <div class="bg-gradient-to-b from-d-second to-d-main w-full h-full min-h-48 hidden md:block" />
+        )
+      }
     </div>
   </div>
 </section>
