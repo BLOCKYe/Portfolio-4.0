@@ -16,6 +16,8 @@ const workSchema = z.object({
   name: z.string(),
   date: z.string(),
   description: z.string(),
+  position: z.string(),
+  link: z.string(),
   sortOrder: z.number(),
 });
 
