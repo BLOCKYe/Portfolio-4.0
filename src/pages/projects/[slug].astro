@@ -51,8 +51,6 @@ const data: CollectionResult<ProjectDto> | undefined = await getEntry(
       {data?.data?.tags.map((tag) => <span class="label">{tag}</span>)}
     </div>
 
-    <div class="divider"></div>
-
     <div class="flex flex-wrap gap-3 mt-6">
       {
         data?.data?.demo && (
