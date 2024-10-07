@@ -77,26 +77,30 @@ const data: CollectionResult<ProjectDto> | undefined = await getEntry(
     <div class="mt-12">
       {
         data?.data?.thumbnail && (
-          <Image
-            src={data?.data?.thumbnail}
-            alt={data?.data?.title ?? ""}
-            width={1000}
-            height={1000}
-            class="rounded-md border-[1px] border-d-second"
-          />
+          <a href={data?.data?.thumbnail} target="_blank">
+            <Image
+              src={data?.data?.thumbnail}
+              alt={data?.data?.title ?? ""}
+              width={1000}
+              height={1000}
+              class="rounded-md border-[1px] border-d-second"
+            />
+          </a>
         )
       }
 
       <div class="grid gap-3 mt-3">
         {
           data?.data?.images.map((image) => (
-            <Image
-              src={image}
-              alt={data?.data?.title ?? ""}
-              width={1000}
-              height={1000}
-              class="rounded-md border-[1px] border-d-second"
-            />
+            <a href={image} target="_blank">
+              <Image
+                src={image}
+                alt={data?.data?.title ?? ""}
+                width={1000}
+                height={1000}
+                class="rounded-md border-[1px] border-d-second"
+              />
+            </a>
           ))
         }
       </div>
