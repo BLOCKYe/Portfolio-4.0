@@ -19,14 +19,13 @@ const sortedProjects = projects.sort(
 const firstProjectsColumn = projects.slice(0, sortedProjects.length / 2);
 const secondProjectsColumn = projects.slice(sortedProjects.length / 2);
 
-const columnStyle = hideExtra ? "mt-6 grid gap-3 md:grid-cols-2" : "mt-6 grid gap-3 md:grid-cols-2 items-start"
+const columnStyle = hideExtra
+  ? "mt-6 grid gap-3 md:grid-cols-2"
+  : "mt-6 grid gap-3 md:grid-cols-2 items-start";
 ---
 
 <section>
-  <div class="fc">
-    <TiThList />
-    <h2>{title}</h2>
-  </div>
+  <h2>{title}</h2>
   <p class="text-muted text-sm">{description}</p>
 
   <div class={columnStyle}>

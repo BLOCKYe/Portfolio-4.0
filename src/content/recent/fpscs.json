@@ -2,8 +2,8 @@
   "title": "FPSCS.PL",
   "description": "The essential app for Faceit platform enthusiasts. Analyze real-time stats, explore player profiles, and track your progress effortlessly.",
   "date": "November 2023",
-  "thumbnail": "/images/fpscs3.png",
-  "images": ["/images/fpscs3.png"],
+  "thumbnail": "/images/fpscs3.jpeg",
+  "images": ["/images/fpscs1.png", "/images/fpscs2.png"],
   "github": "https://github.com/BLOCKYe/faceit-pocket-stats",
   "demo": "https://www.fpscs.pl/players/19606e0c-137b-4885-a904-744fa12d25f6/cs2",
   "tags": [

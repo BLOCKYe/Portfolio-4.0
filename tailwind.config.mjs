@@ -11,6 +11,9 @@ export default {
         "d-third": "#222328",
         "c-main": "#facf87",
       },
+      animation: {
+        ping: "ping 1s 0.5s linear infinite",
+      },
     },
   },
   plugins: [
