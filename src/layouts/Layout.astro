@@ -29,12 +29,7 @@ const { title } = Astro.props;
     <slot />
 
     <style is:global>
-      @font-face {
-        font-family: "Geist Mono";
-        src: url("/fonts/GeistMono-Regular.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-      }
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
       ::-webkit-scrollbar {
         @apply bg-d-main w-2;
@@ -99,13 +94,13 @@ const { title } = Astro.props;
       }
 
       html {
-        font-size: 15px;
-        font-family: "Geist Mono", monospace;
+        font-size: 16px;
+        font-family: "DM Sans", sans-serif;
         @apply bg-d-main text-l-main;
       }
 
       h1 {
-        @apply text-2xl leading-8 tracking-tighter;
+        @apply text-2xl leading-8 tracking-tight;
       }
 
       h2 {
@@ -113,7 +108,11 @@ const { title } = Astro.props;
       }
 
       p {
-        @apply font-medium;
+        @apply font-medium leading-relaxed;
+      }
+
+      li {
+        @apply text-sm text-l-second;
       }
 
       .btn {
