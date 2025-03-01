@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionResult, WorkDto } from "../content/config";
 import { GoArrowUpRight } from "react-icons/go";
+import type { CollectionResult, WorkDto } from "../content/config";
 
 const workCollection: Array<CollectionResult<WorkDto>> =
   await getCollection("work");
@@ -18,12 +18,11 @@ const sortedWorkCollection = workCollection.sort(
     Throughout my career, I have collaborated with several companies to
     construct <span class="text-l-main">functional web applications</span>. I am
     enthusiastic about undertaking bespoke projects and applying my expertise to
-    fashion web services for
-    <span class="text-l-main">businesses</span>.
+    fashion web services for businesses.
   </p>
 
   <div
-    class="mt-3 pt-3 pb-3 gap-6 grid divide-y-[1px] divide-d-third border-l-2 border-l-d-third pl-6"
+    class="mt-5 pt-3 pb-3 gap-6 grid divide-y-[1px] divide-d-third border-l-2 border-l-d-third pl-6"
   >
     {
       sortedWorkCollection.map((item) => (
@@ -48,7 +47,7 @@ const sortedWorkCollection = workCollection.sort(
             <GoArrowUpRight className="text-sm" />
           </div>
 
-          <div class={"text-sm text-muted mt-3"}>{item?.data.description}</div>
+          <p class={"text-sm text-muted mt-3"}>{item?.data.description}</p>
         </div>
       ))
     }

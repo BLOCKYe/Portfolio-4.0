@@ -1,9 +1,9 @@
 ---
-import { FaLongArrowAltRight } from "react-icons/fa";
-import type { CollectionResult, ProjectDto } from "../content/config";
 import { Image } from "astro:assets";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
 import { TbExternalLink } from "react-icons/tb";
+import type { CollectionResult, ProjectDto } from "../content/config";
 
 interface Props extends CollectionResult<ProjectDto> {}
 
@@ -14,10 +14,10 @@ const {
 ---
 
 <div
-  class="rounded border-[1px] border-d-third overflow-hidden relative bg-d-second bg-opacity-75 transition-all hover:bg-opacity-100"
+  class="rounded border-[1px] border-d-third overflow-hidden relative bg-d-second transition-all"
 >
   <a href={thumbnail} target="_blank">
-    <Image src={thumbnail} alt={title} width={400} height={400} />
+    <Image src={thumbnail} alt={title} width={600} height={400} />
   </a>
 
   <div class="p-3 md:p-6">
@@ -53,11 +53,7 @@ const {
       </div>
     </div>
 
-    <p class="text-muted text-sm mt-3">{description}</p>
-
-    <div class="mt-6 flex flex-wrap gap-1 mb-12">
-      {tags.map((tag) => <span class="label">{tag}</span>)}
-    </div>
+    <p class="text-muted text-sm mt-3 mb-12">{description}</p>
 
     <a href={`/projects/${id}`}>
       <button

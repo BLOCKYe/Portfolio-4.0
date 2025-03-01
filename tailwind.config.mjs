@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "l-main": "#e2e3e5",
-        "l-second": "#999a9d",
-        "d-main": "#090909",
-        "d-second": "#0f1011",
-        "d-third": "#222328",
+        "l-main": "#fafafa",
+        "l-second": "#ababab",
+        "d-main": "#0d0d0d",
+        "d-second": "#121212",
+        "d-third": "#212121",
         "c-main": "#facf87",
       },
       animation: {

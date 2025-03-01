@@ -100,15 +100,19 @@ const { title } = Astro.props;
       }
 
       h1 {
-        @apply text-2xl leading-8 tracking-tight;
+        @apply text-2xl leading-tight tracking-tight;
       }
 
       h2 {
-        @apply text-lg leading-8 tracking-tight;
+        @apply text-lg leading-tight tracking-tight;
       }
 
       p {
-        @apply leading-relaxed tracking-wide;
+        @apply leading-relaxed;
+      }
+
+      span {
+        @apply leading-relaxed;
       }
 
       li {
